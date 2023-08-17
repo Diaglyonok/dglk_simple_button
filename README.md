@@ -1,4 +1,4 @@
-# dglk_simple_button
+# [dglk] SimpleButton
 Just a simple view with settings to use in my projects.
 
 ## Here are examples:
