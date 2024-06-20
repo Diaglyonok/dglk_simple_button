@@ -27,8 +27,7 @@ class SimpleButton extends StatelessWidget {
       this.shadowColor})
       : super(key: key);
 
-  Color getColor(BuildContext context) =>
-      backgroundColor ?? Theme.of(context).colorScheme.secondary;
+  Color getColor(BuildContext context) => backgroundColor ?? Theme.of(context).colorScheme.secondary;
 
   @override
   Widget build(BuildContext context) {
@@ -43,9 +42,7 @@ class SimpleButton extends StatelessWidget {
         child: Container(
           height: 48,
           decoration: BoxDecoration(
-            color: isDisabled
-                ? Color.alphaBlend(Colors.white.withOpacity(0.5), getColor(context))
-                : getColor(context),
+            color: isDisabled ? Color.alphaBlend(Colors.white.withOpacity(0.5), getColor(context)) : getColor(context),
             boxShadow: !withShadow
                 ? null
                 : [
@@ -63,7 +60,13 @@ class SimpleButton extends StatelessWidget {
               borderRadius: BorderRadius.circular(borderRadius),
               onTap: callback,
               child: Center(
-                child: child ?? Text(title, semanticsLabel: title, style: style),
+                child: child ??
+                    Text(
+                      title,
+                      semanticsLabel: title,
+                      style: style,
+                      textAlign: TextAlign.center,
+                    ),
               ),
             ),
           ),
