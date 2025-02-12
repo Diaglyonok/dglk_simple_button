@@ -13,19 +13,21 @@ class SimpleButton extends StatelessWidget {
   final TextStyle? textStyle;
   final bool withShadow;
   final Color? shadowColor;
+  final BoxBorder? border;
 
-  const SimpleButton(
-      {Key? key,
-      this.callback,
-      required this.title,
-      this.disabledTextColor,
-      this.child,
-      this.borderRadius = 12.0,
-      this.backgroundColor,
-      this.textStyle,
-      this.withShadow = false,
-      this.shadowColor})
-      : super(key: key);
+  const SimpleButton({
+    Key? key,
+    this.callback,
+    required this.title,
+    this.disabledTextColor,
+    this.child,
+    this.borderRadius = 12.0,
+    this.backgroundColor,
+    this.textStyle,
+    this.withShadow = false,
+    this.shadowColor,
+    this.border,
+  }) : super(key: key);
 
   Color getColor(BuildContext context) => backgroundColor ?? Theme.of(context).colorScheme.secondary;
 
@@ -53,6 +55,7 @@ class SimpleButton extends StatelessWidget {
                         color: shadowColor ?? Colors.black.withOpacity(0.24))
                   ],
             borderRadius: BorderRadius.circular(borderRadius),
+            border: border,
           ),
           child: Material(
             type: MaterialType.transparency,
