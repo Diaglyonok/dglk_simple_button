@@ -44,7 +44,11 @@ class SimpleButton extends StatelessWidget {
         child: Container(
           height: 48,
           decoration: BoxDecoration(
-            color: isDisabled ? Color.alphaBlend(Colors.white.withOpacity(0.5), getColor(context)) : getColor(context),
+            // Disabled: half faded into the theme's surface (white would light
+            // it up on a dark theme).
+            color: isDisabled
+                ? Color.alphaBlend(Theme.of(context).colorScheme.surface.withOpacity(0.5), getColor(context))
+                : getColor(context),
             boxShadow: !withShadow
                 ? null
                 : [
